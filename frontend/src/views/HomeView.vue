@@ -1,9 +1,5 @@
-<!-- <script setup lang="ts">
-import ApiTest from "@/components/ApiTest.vue";
-</script> -->
 <script>
 import Table from '../components/Table.vue'
-import { mapActions } from 'pinia'
 import { useUsersStore } from '../stores/users'
 export default {
   components: { Table },
@@ -12,17 +8,8 @@ export default {
   }),
 
   created() {
-    // ...mapActions(useUsersStore, ['fetchUsers'])
     const usersStore = useUsersStore()
     usersStore.fetchUsers()
-  },
-
-  methods: {
-    // async fetchData() {
-    //   const url = 'http://127.0.0.1:8001'
-    //   var res = await (await fetch(url)).json()
-    //   this.apiResponse = res.users
-    // }
   },
 
   computed : {
@@ -36,6 +23,9 @@ export default {
 
 <template>
   <main>
-    <Table :data="users" />
+    <p class="text-center text-2xl font-medium text-gray-700 mt-2 mb-4">Users table</p>
+    <div class="px-40">
+      <Table :data="users" />
+    </div>
   </main>
 </template>
